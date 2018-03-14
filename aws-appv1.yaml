@@ -37,4 +37,4 @@ spec:
           image: gcr.io/hightowerlabs/server:0.0.1
           imagePullPolicy: Always
           args:
-            - "-name=gke-cluster-app-v1"
+            - "-name=aws-cluster-app-v1"
