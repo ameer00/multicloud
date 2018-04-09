@@ -1,0 +1,465 @@
+{
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "anonymous",
+  "limitConcurrent": true,
+  "stages": [
+    {
+      "clusters": [
+        {
+          "account": "gke_ameer-mc_us-west1-a_gke-cluster",
+          "application": "myapp",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [
+                "-name=myapp-canary-gke-$(VOLUME)"
+              ],
+              "command": [],
+              "envFrom": [],
+              "envVars": [
+                {
+                  "name": "VOLUME",
+                  "value": "${trigger['tag']}"
+                }
+              ],
+              "imageDescription": {
+                "account": "gcr",
+                "fromTrigger": true,
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
+                "registry": "gcr.io",
+                "repository": "ameer-mc/web-server",
+                "tag": "v.*"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "ameer-mc-web-server",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "deployment": {
+            "deploymentStrategy": {
+              "rollingUpdate": {
+                "maxSurge": "100%",
+                "maxUnavailable": "0%"
+              },
+              "type": "RollingUpdate"
+            },
+            "enabled": true,
+            "minReadySeconds": 0,
+            "revisionHistoryLimit": 2
+          },
+          "dnsPolicy": "ClusterFirst",
+          "freeFormDetails": "gke",
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "myapp-gke-lb"
+          ],
+          "namespace": "multicloud",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "multicloud",
+          "replicaSetAnnotations": {
+            "deployment.kubernetes.io/desired-replicas": "1",
+            "deployment.kubernetes.io/max-replicas": "2"
+          },
+          "stack": "canary",
+          "strategy": "",
+          "targetSize": 1,
+          "terminationGracePeriodSeconds": 30,
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy Canary to GKE",
+      "refId": "1",
+      "requisiteStageRefIds": [],
+      "type": "deploy"
+    },
+    {
+      "clusters": [
+        {
+          "account": "uswest2.aws.theplatform.ml",
+          "application": "myapp",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [
+                "-name=myapp-canary-aws-$(VOLUME)"
+              ],
+              "command": [],
+              "envFrom": [],
+              "envVars": [
+                {
+                  "name": "VOLUME",
+                  "value": "${trigger['tag']}"
+                }
+              ],
+              "imageDescription": {
+                "account": "gcr",
+                "fromTrigger": true,
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
+                "registry": "gcr.io",
+                "repository": "ameer-mc/web-server",
+                "tag": "v.*"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "ameer-mc-web-server",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "deployment": {
+            "deploymentStrategy": {
+              "rollingUpdate": {
+                "maxSurge": "100%",
+                "maxUnavailable": "0%"
+              },
+              "type": "RollingUpdate"
+            },
+            "enabled": true,
+            "minReadySeconds": 0,
+            "revisionHistoryLimit": 2
+          },
+          "dnsPolicy": "ClusterFirst",
+          "freeFormDetails": "aws",
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "myapp-aws-lb"
+          ],
+          "namespace": "multicloud",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "multicloud",
+          "replicaSetAnnotations": {
+            "deployment.kubernetes.io/desired-replicas": "1",
+            "deployment.kubernetes.io/max-replicas": "2"
+          },
+          "stack": "canary",
+          "strategy": "",
+          "targetSize": 1,
+          "terminationGracePeriodSeconds": 30,
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy Canary to AWS",
+      "refId": "2",
+      "requisiteStageRefIds": [],
+      "type": "deploy"
+    },
+    {
+      "account": "gke_ameer-mc_us-west1-a_gke-cluster",
+      "annotations": {},
+      "application": "myapp",
+      "cloudProvider": "kubernetes",
+      "cloudProviderType": "kubernetes",
+      "containers": [
+        {
+          "args": [],
+          "command": [
+            "curl",
+            "http://myapp-gke-lb:80"
+          ],
+          "envFrom": [],
+          "envVars": [],
+          "imageDescription": {
+            "account": "gcr",
+            "imageId": "gcr.io/ameer-mc/busyboxplus:latest",
+            "registry": "gcr.io",
+            "repository": "ameer-mc/busyboxplus",
+            "tag": "latest"
+          },
+          "imagePullPolicy": "IFNOTPRESENT",
+          "limits": {},
+          "name": "ameer-mc-busyboxplus",
+          "ports": [
+            {
+              "containerPort": 80,
+              "name": "http",
+              "protocol": "TCP"
+            }
+          ],
+          "requests": {},
+          "volumeMounts": []
+        }
+      ],
+      "dnsPolicy": "ClusterFirst",
+      "labels": {},
+      "name": "Test Canary on GKE",
+      "namespace": "multicloud",
+      "refId": "3",
+      "requisiteStageRefIds": [
+        "1"
+      ],
+      "type": "runJob"
+    },
+    {
+      "account": "uswest2.aws.theplatform.ml",
+      "annotations": {},
+      "application": "myapp",
+      "cloudProvider": "kubernetes",
+      "cloudProviderType": "kubernetes",
+      "containers": [
+        {
+          "args": [],
+          "command": [
+            "curl",
+            "http://myapp-aws-lb:80"
+          ],
+          "envFrom": [],
+          "envVars": [],
+          "imageDescription": {
+            "account": "gcr",
+            "imageId": "gcr.io/ameer-mc/busyboxplus:latest",
+            "registry": "gcr.io",
+            "repository": "ameer-mc/busyboxplus",
+            "tag": "latest"
+          },
+          "imagePullPolicy": "IFNOTPRESENT",
+          "limits": {},
+          "name": "ameer-mc-busyboxplus",
+          "ports": [
+            {
+              "containerPort": 80,
+              "name": "http",
+              "protocol": "TCP"
+            }
+          ],
+          "requests": {},
+          "volumeMounts": []
+        }
+      ],
+      "dnsPolicy": "ClusterFirst",
+      "labels": {},
+      "name": "Test Canary on AWS",
+      "namespace": "multicloud",
+      "refId": "4",
+      "requisiteStageRefIds": [
+        "2"
+      ],
+      "type": "runJob"
+    },
+    {
+      "failPipeline": true,
+      "instructions": "Deploy to Production?",
+      "judgmentInputs": [],
+      "name": "Deploy to Production?",
+      "notifications": [],
+      "refId": "5",
+      "requisiteStageRefIds": [
+        "3",
+        "4"
+      ],
+      "type": "manualJudgment"
+    },
+    {
+      "clusters": [
+        {
+          "account": "gke_ameer-mc_us-west1-a_gke-cluster",
+          "application": "myapp",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [
+                "-name=myapp-prod-gke-$(VOLUME)"
+              ],
+              "command": [],
+              "envFrom": [],
+              "envVars": [
+                {
+                  "name": "VOLUME",
+                  "value": "${trigger['tag']}"
+                }
+              ],
+              "imageDescription": {
+                "account": "gcr",
+                "fromTrigger": true,
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
+                "registry": "gcr.io",
+                "repository": "ameer-mc/web-server",
+                "tag": "v.*"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "ameer-mc-web-server",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "deployment": {
+            "deploymentStrategy": {
+              "rollingUpdate": {
+                "maxSurge": "100%",
+                "maxUnavailable": "0%"
+              },
+              "type": "RollingUpdate"
+            },
+            "enabled": true,
+            "minReadySeconds": 0,
+            "revisionHistoryLimit": 2
+          },
+          "dnsPolicy": "ClusterFirst",
+          "freeFormDetails": "gke",
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "myapp-gke-lb"
+          ],
+          "namespace": "multicloud",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "multicloud",
+          "replicaSetAnnotations": {
+            "deployment.kubernetes.io/desired-replicai": "4",
+            "deployment.kubernetes.io/max-replicas": "8"
+          },
+          "stack": "prod",
+          "strategy": "",
+          "targetSize": 4,
+          "terminationGracePeriodSeconds": 30,
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy on GKE Production",
+      "refId": "6",
+      "requisiteStageRefIds": [
+        "5"
+      ],
+      "type": "deploy"
+    },
+    {
+      "clusters": [
+        {
+          "account": "uswest2.aws.theplatform.ml",
+          "application": "myapp",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [
+                "-name=myapp-prod-aws-$(VOLUME)"
+              ],
+              "command": [],
+              "envFrom": [],
+              "envVars": [
+                {
+                  "name": "VOLUME",
+                  "value": "${trigger['tag']}"
+                }
+              ],
+              "imageDescription": {
+                "account": "gcr",
+                "fromTrigger": true,
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
+                "registry": "gcr.io",
+                "repository": "ameer-mc/web-server",
+                "tag": "v.*"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "ameer-mc-web-server",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "deployment": {
+            "deploymentStrategy": {
+              "rollingUpdate": {
+                "maxSurge": "100%",
+                "maxUnavailable": "0%"
+              },
+              "type": "RollingUpdate"
+            },
+            "enabled": true,
+            "minReadySeconds": 0,
+            "revisionHistoryLimit": 2
+          },
+          "dnsPolicy": "ClusterFirst",
+          "freeFormDetails": "aws",
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "myapp-aws-lb"
+          ],
+          "namespace": "multicloud",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "multicloud",
+          "replicaSetAnnotations": {
+            "deployment.kubernetes.io/desired-replicas": "4",
+            "deployment.kubernetes.io/max-replicas": "8"
+          },
+          "stack": "prod",
+          "strategy": "",
+          "targetSize": 4,
+          "terminationGracePeriodSeconds": 30,
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy on AWS Production",
+      "refId": "7",
+      "requisiteStageRefIds": [
+        "5"
+      ],
+      "type": "deploy"
+    }
+  ],
+  "triggers": [
+    {
+      "account": "gcr",
+      "enabled": true,
+      "fromTrigger": true,
+      "organization": "ameer-mc",
+      "registry": "gcr.io",
+      "repository": "ameer-mc/web-server",
+      "tag": "v.*",
+      "type": "docker"
+    }
+  ],
+  "updateTs": "1522791278049"
+}
