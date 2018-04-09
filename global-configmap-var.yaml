@@ -36,14 +36,14 @@ data:
         include /etc/nginx/conf.d/load-balancer.conf;
     }
   load-balancer.conf: |
-    upstream $APP_WEB_ADDRESS {
+    upstream http://example.com {
       server $AWS_INGRESS_IP weight=1;
       server $GKE_INGRESS_IP weight=4;
     }
     server {
       listen 80;
       location / {
-        proxy_pass http://$APP_WEB_ADDRESS;
+        proxy_pass http://example.com;
         proxy_http_version 1.1;
       }
       }
