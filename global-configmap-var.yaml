@@ -36,7 +36,7 @@ data:
         include /etc/nginx/conf.d/load-balancer.conf;
     }
   load-balancer.conf: |
-    upstream http://example.com {
+    upstream example.com {
       server $AWS_APP_INGRESS_IP weight=1;
       server $GKE_APP_INGRESS_IP weight=4;
     }
