@@ -37,8 +37,8 @@ data:
     }
   load-balancer.conf: |
     upstream http://example.com {
-      server $AWS_INGRESS_IP weight=1;
-      server $GKE_INGRESS_IP weight=4;
+      server $AWS_APP_INGRESS_IP weight=1;
+      server $GKE_APP_INGRESS_IP weight=4;
     }
     server {
       listen 80;
