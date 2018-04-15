@@ -1,8 +1,4 @@
 {
-  "name": "Deploy",
-  "application": "myapp",
-  "appConfig": {},
-  "executionEngine": "v2",
   "keepWaitingPipelines": false,
   "lastModifiedBy": "anonymous",
   "limitConcurrent": true,
@@ -10,7 +6,7 @@
     {
       "clusters": [
         {
-          "account": "gke_PROJECT_GCP_ZONE_gke-cluster",
+          "account": "gke_ameer-mc_us-west1-a_gke-cluster",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -29,14 +25,14 @@
               "imageDescription": {
                 "account": "gcr",
                 "fromTrigger": true,
-                "imageId": "gcr.io/PROJECT/web-server:v.*",
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
                 "registry": "gcr.io",
-                "repository": "PROJECT/web-server",
+                "repository": "ameer-mc/web-server",
                 "tag": "v.*"
               },
               "imagePullPolicy": "IFNOTPRESENT",
               "limits": {},
-              "name": "PROJECT-web-server",
+              "name": "ameer-mc-web-server",
               "ports": [
                 {
                   "containerPort": 80,
@@ -94,7 +90,7 @@
     {
       "clusters": [
         {
-          "account": "uswest2.SUB_DOMAIN",
+          "account": "uswest2.aws.theplatform.ml",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -113,14 +109,14 @@
               "imageDescription": {
                 "account": "gcr",
                 "fromTrigger": true,
-                "imageId": "gcr.io/PROJECT/web-server:v.*",
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
                 "registry": "gcr.io",
-                "repository": "PROJECT/web-server",
+                "repository": "ameer-mc/web-server",
                 "tag": "v.*"
               },
               "imagePullPolicy": "IFNOTPRESENT",
               "limits": {},
-              "name": "PROJECT-web-server",
+              "name": "ameer-mc-web-server",
               "ports": [
                 {
                   "containerPort": 80,
@@ -176,7 +172,7 @@
       "type": "deploy"
     },
     {
-      "account": "gke_PROJECT_GCP_ZONE_gke-cluster",
+      "account": "gke_ameer-mc_us-west1-a_gke-cluster",
       "annotations": {},
       "application": "myapp",
       "cloudProvider": "kubernetes",
@@ -192,14 +188,14 @@
           "envVars": [],
           "imageDescription": {
             "account": "gcr",
-            "imageId": "gcr.io/PROJECT/busyboxplus:latest",
+            "imageId": "gcr.io/ameer-mc/busyboxplus:latest",
             "registry": "gcr.io",
-            "repository": "PROJECT/busyboxplus",
+            "repository": "ameer-mc/busyboxplus",
             "tag": "latest"
           },
           "imagePullPolicy": "IFNOTPRESENT",
           "limits": {},
-          "name": "PROJECT-busyboxplus",
+          "name": "ameer-mc-busyboxplus",
           "ports": [
             {
               "containerPort": 80,
@@ -222,7 +218,7 @@
       "type": "runJob"
     },
     {
-      "account": "uswest2.SUB_DOMAIN",
+      "account": "uswest2.aws.theplatform.ml",
       "annotations": {},
       "application": "myapp",
       "cloudProvider": "kubernetes",
@@ -238,14 +234,14 @@
           "envVars": [],
           "imageDescription": {
             "account": "gcr",
-            "imageId": "gcr.io/PROJECT/busyboxplus:latest",
+            "imageId": "gcr.io/ameer-mc/busyboxplus:latest",
             "registry": "gcr.io",
-            "repository": "PROJECT/busyboxplus",
+            "repository": "ameer-mc/busyboxplus",
             "tag": "latest"
           },
           "imagePullPolicy": "IFNOTPRESENT",
           "limits": {},
-          "name": "PROJECT-busyboxplus",
+          "name": "ameer-mc-busyboxplus",
           "ports": [
             {
               "containerPort": 80,
@@ -283,7 +279,7 @@
     {
       "clusters": [
         {
-          "account": "gke_PROJECT_GCP_ZONE_gke-cluster",
+          "account": "gke_ameer-mc_us-west1-a_gke-cluster",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -302,14 +298,14 @@
               "imageDescription": {
                 "account": "gcr",
                 "fromTrigger": true,
-                "imageId": "gcr.io/PROJECT/web-server:v.*",
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
                 "registry": "gcr.io",
-                "repository": "PROJECT/web-server",
+                "repository": "ameer-mc/web-server",
                 "tag": "v.*"
               },
               "imagePullPolicy": "IFNOTPRESENT",
               "limits": {},
-              "name": "PROJECT-web-server",
+              "name": "ameer-mc-web-server",
               "ports": [
                 {
                   "containerPort": 80,
@@ -369,7 +365,7 @@
     {
       "clusters": [
         {
-          "account": "uswest2.SUB_DOMAIN",
+          "account": "uswest2.aws.theplatform.ml",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -388,14 +384,14 @@
               "imageDescription": {
                 "account": "gcr",
                 "fromTrigger": true,
-                "imageId": "gcr.io/PROJECT/web-server:v.*",
+                "imageId": "gcr.io/ameer-mc/web-server:v.*",
                 "registry": "gcr.io",
-                "repository": "PROJECT/web-server",
+                "repository": "ameer-mc/web-server",
                 "tag": "v.*"
               },
               "imagePullPolicy": "IFNOTPRESENT",
               "limits": {},
-              "name": "PROJECT-web-server",
+              "name": "ameer-mc-web-server",
               "ports": [
                 {
                   "containerPort": 80,
@@ -458,9 +454,9 @@
       "account": "gcr",
       "enabled": true,
       "fromTrigger": true,
-      "organization": "PROJECT",
+      "organization": "ameer-mc",
       "registry": "gcr.io",
-      "repository": "PROJECT/web-server",
+      "repository": "ameer-mc/web-server",
       "tag": "v.*",
       "type": "docker"
     }

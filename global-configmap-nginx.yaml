@@ -36,14 +36,14 @@ data:
         include /etc/nginx/conf.d/load-balancer.conf;
     }
   load-balancer.conf: |
-    upstream test.theplatform.com {
-      server af8a1f903274111e8ba2202972df1fe7-882212238.us-west-2.elb.amazonaws.com weight=1;
-      server 35.230.40.147 weight=4;
+    upstream example.com {
+      server acfa241a93f6811e8967f0203d48581e-1083934854.us-west-2.elb.amazonaws.com weight=1;
+      server 35.192.163.132 weight=4;
     }
     server {
       listen 80;
       location / {
-        proxy_pass http://test.theplatform.com;
+        proxy_pass http://example.com;
         proxy_http_version 1.1;
       }
       }
