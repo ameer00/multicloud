@@ -1,0 +1,13 @@
+apiVersion: config.istio.io/v1alpha2
+kind: RouteRule
+metadata:
+  name: myapp-routerules-100c
+spec:
+  destination:
+    name: myapp-gke-lb
+    namespace: multicloud
+    domain: svc.cluster.local
+  route:
+  - labels:
+      stack: canary
+    weight: 100

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ameer-mc-1",
+  "private_key_id": "2613e06394929e431f7b6ae35d9cf6aae632b3a1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDSRp8Ouqi6j2H2\nwmM97iyr2vFnKe1UF88TVdhLA/xlo9oB/HfMilwVmuYdFCp8BrhzBhPKMLaxyLWA\nAZ4WleOp/sFt2GfnZ2eYVQ9y4ujnQ+/xoomG+LqdyY9nCQxBpEeItHorDrBTiMNk\nj+c9AG7bmjzvXIDN70zb121i4wIcztsvU3usmxOan3//L1yVTpyyo3FCzpWFx2j6\nQrD6I0F09vo9vuoB06lrg4VxIbkhVlfV1MFKsdskUk8QIt2S8X4ztYoLIQKsluH8\nZUuC/jshowfnv1iLvm71mauY0rMUBoyjF2JuRL2/xPIX3hNy/ep74tkCVW3l3CLj\nRvaKq8+rAgMBAAECggEAXiQKABEni2a4KD69KbPhQguiulo2C8khB3oOfP9K18J0\nzyDWDbgAJBgWX/xwTNjBaZXV9Fa85HmEcMvImDoBFFGfDeuuERbldXjXksruFOQA\nn8DyK4BeJFhiIHIXj6fZ8uVCMNbBsJRxTitzDoeMGjtCfrN+YzR4x4/6RCR4BKb0\nEJoO4nWfrm6FvxxhQCNf2lD2tBc9VO4bsqEak92E+IeWcAbQ7BlBDATNJfF4b8ZM\ny95jU7LEEfaWVgceElkDrX0fmBFcPQBk9DbzTfWHD4c6oYA6xzWDMvYtHQkuyNfn\nN4yA/uNz19YvCpRt2X7C3BXzQvwckGYj8LyKdrd9oQKBgQDoe5lNw7570x3HGNOE\n3ol8TpvZQ/yU7Yibgxb4/wZg0e33esmWMfd7PrFnFgVq6c0GQwA8P3/x5VHXNOLP\nGNXFGvrN51il1YFxWwcrZIySzGToDnAxnLQt+Q33SNkaWkZ3MRKXf+4Z2tnW2Azy\nx9USbqNK+pIpYqr1dr7av8AoUQKBgQDni/LuYODU/k5/DDBw/XaTU+hQgJiqraBe\nY9IKmR8fCZ5ou+FQDV6nEy3pqvuDgc5LH9MNXLzpNqwlslE8NZcV4eu3X8+egpFl\ndQB+OAA9v3wAK7fMFdZqRN9k0TCFoFiLM+G7Hi6w2SpjzvJArmZg03kX1VrwJ6A5\n5toT/731OwKBgQDW8AbhdbrzolEilNpiOpij+81tBsVML3wgQweHN8j+1LgNGVGs\n8g9bu6+qnhpuKTCrvGBIU3EIBLswm62iSNTDAdmlamF0GLwvQDiVrsWkpyIXxdmG\nlNmks2FtIcXO7m29nvoQZW+OKd9DGcaG46gj/XQtSxK8/oMOpDV56tROsQKBgHoR\nR5LwM9dV8h/8VxVaKkblN1YpVVK1khPw3+yCaOu98GsakV/YjIvcCppjb5EWv6DP\nOD6VI2p3Ti3ZYgYx4mLA5bmYoyXXg7tPAWGJOGdVKZQVeCH5aT5A7NyDg+cOb1+D\njH9PHCJTeot/sCr1RjfJhM9RxU1SNqAP2ewtKQG9AoGBAIbHihSUdHqUjof+cZ+p\nAClda5WiioQfrjBUY9k4iC9woC9bo7SApSkQCCdaeOthYXHw6pM6z5CUppyhxRRu\nr/8gdcqkTPkeOlDIMmZk7q8Aq/ATPCZPMz0DhcApH4wkpyTMA6Q1Z2KzEAV0REyH\nulpZ0X/B+VKMvbFg3shyOWVU\n-----END PRIVATE KEY-----\n",
+  "client_email": "multicloud-sa@ameer-mc-1.iam.gserviceaccount.com",
+  "client_id": "117577584924175303816",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/multicloud-sa%40ameer-mc-1.iam.gserviceaccount.com"
+}
