@@ -16,7 +16,8 @@ export AWS_CLUSTER=$AWS_ZONE
 export PROJECT=$(gcloud info --format='value(config.project)')
 export GKE_CONTEXT="gke_"$PROJECT"_"$GCP_ZONE"_"$GKE_CLUSTER
 export GLB_CONTEXT="gke_"$PROJECT"_"$GCP_ZONE"_"$GLB_CLUSTER
-export AWS_CONTEXT=$AWS_CLUSTER".aws."$DOMAIN
+export SUB_DOMAIN=aws.$DOMAIN
+export AWS_CONTEXT=$AWS_CLUSTER"."$SUB_DOMAIN
 
 # For verification
 echo "Please confirm the vars below:"
@@ -26,4 +27,5 @@ echo "GKE Cluster Context: " $GKE_CONTEXT
 echo "GLB Cluster Context: " $GLB_CONTEXT
 echo "AWS Region: " $AWS_REGION
 echo "AWS Availability Zone: " $AWS_ZONE
+echo "AWS Sub Domain: " $SUB_DOMAIN
 echo "AWS Cluster Context: " $AWS_CONTEXT
