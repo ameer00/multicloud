@@ -37,8 +37,8 @@ data:
     }
   load-balancer.conf: |
     upstream example.com {
-      server acfa241a93f6811e8967f0203d48581e-1083934854.us-west-2.elb.amazonaws.com weight=1;
-      server 35.192.163.132 weight=4;
+      server a26eb3b8841d611e88e1302ca262de1c-19213538.us-east-2.elb.amazonaws.com weight=1;
+      server 35.193.141.126 weight=4;
     }
     server {
       listen 80;
