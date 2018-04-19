@@ -94,7 +94,7 @@
     {
       "clusters": [
         {
-          "account": "uswest2.SUB_DOMAIN",
+          "account": "AWS_ZONE.SUB_DOMAIN",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -222,7 +222,7 @@
       "type": "runJob"
     },
     {
-      "account": "uswest2.SUB_DOMAIN",
+      "account": "AWS_ZONE.SUB_DOMAIN",
       "annotations": {},
       "application": "myapp",
       "cloudProvider": "kubernetes",
@@ -369,7 +369,7 @@
     {
       "clusters": [
         {
-          "account": "uswest2.SUB_DOMAIN",
+          "account": "AWS_ZONE.SUB_DOMAIN",
           "application": "myapp",
           "cloudProvider": "kubernetes",
           "containers": [
