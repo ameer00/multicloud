@@ -2,6 +2,7 @@
 # Feel free to add additional variables underneath the GCP and AWS sections below
 
 # Enter values for GCP
+export GCP_REGION=us-central1
 export GCP_ZONE=us-central1-a
 export GKE_CLUSTER=gke-cluster
 export GLB_CLUSTER=glb-cluster
