@@ -5,7 +5,7 @@ metadata:
   namespace: multicloud
 spec:
   quotas:
-  - name: requestcount.quota.default
+  - name: requestcount.quota.multicloud
     maxAmount: 100
     validDuration: 1s
     # The first matching override is applied.
