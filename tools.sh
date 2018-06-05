@@ -17,7 +17,7 @@ chmod 700 get_helm.sh
 pip install awscli --upgrade --user
 
 # Install kops
-wget https://github.com/kubernetes/kops/releases/download/1.8.0/kops-linux-amd64
+wget https://github.com/kubernetes/kops/releases/download/1.9.1/kops-linux-amd64
 chmod +x kops-linux-amd64
 mv kops-linux-amd64 ~/bin/kops
 PATH=$PATH:$HOME/.local/bin/
