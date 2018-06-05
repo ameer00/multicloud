@@ -22,6 +22,9 @@ chmod +x kops-linux-amd64
 mv kops-linux-amd64 ~/bin/kops
 PATH=$PATH:$HOME/.local/bin/
 
+# Install the hey tool
+go get -u github.com/rakyll/hey
+
 # Install kube ps1
 git clone https://github.com/jonmosco/kube-ps1.git
 echo 'source $HOME/kube-ps1/kube-ps1.sh' >> ~/.bashrc
