@@ -25,6 +25,12 @@ PATH=$PATH:$HOME/.local/bin/
 # Install the hey tool
 go get -u github.com/rakyll/hey
 
+# Install terrform
+wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+unzip terraform_0.11.7_linux_amd64.zip
+mv terraform ~/.local/bin
+rm terraform_0.11.7_linux_amd64.zip
+
 # Install kube ps1
 git clone https://github.com/jonmosco/kube-ps1.git
 echo 'source $HOME/kube-ps1/kube-ps1.sh' >> ~/.bashrc
