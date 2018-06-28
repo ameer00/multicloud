@@ -31,6 +31,11 @@ unzip terraform_0.11.7_linux_amd64.zip
 mv terraform ~/.local/bin
 rm terraform_0.11.7_linux_amd64.zip
 
+# Install kubectl aliases
+cd $HOME
+wget https://raw.githubusercontent.com/ahmetb/kubectl-alias/master/.kubectl_aliases
+echo "[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases" >> $HOME/.bashrc
+
 # Install kube ps1
 git clone https://github.com/jonmosco/kube-ps1.git
 echo 'source $HOME/kube-ps1/kube-ps1.sh' >> ~/.bashrc
